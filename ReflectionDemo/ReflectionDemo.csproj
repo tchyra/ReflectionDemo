@@ -46,7 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\IntInRangeAttribute.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +58,7 @@
     <Compile Include="FrmUniversalEditor.Designer.cs">
       <DependentUpon>FrmUniversalEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\NotifyingObject.cs" />
     <Compile Include="Models\Osoba.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

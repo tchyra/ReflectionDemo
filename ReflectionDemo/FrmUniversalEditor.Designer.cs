@@ -50,7 +50,7 @@ namespace ReflectionDemo
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(305, 268);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // _flpControls
@@ -58,32 +58,36 @@ namespace ReflectionDemo
             this._flpControls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this._flpControls.AutoScroll = true;
             this.tableLayoutPanel1.SetColumnSpan(this._flpControls, 2);
+            this._flpControls.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this._flpControls.Location = new System.Drawing.Point(3, 3);
             this._flpControls.Name = "_flpControls";
-            this._flpControls.Size = new System.Drawing.Size(794, 415);
+            this._flpControls.Size = new System.Drawing.Size(299, 233);
             this._flpControls.TabIndex = 0;
             // 
             // _btnZapisz
             // 
             this._btnZapisz.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this._btnZapisz.Location = new System.Drawing.Point(722, 424);
+            this._btnZapisz.Location = new System.Drawing.Point(227, 242);
             this._btnZapisz.Name = "_btnZapisz";
             this._btnZapisz.Size = new System.Drawing.Size(75, 23);
             this._btnZapisz.TabIndex = 1;
             this._btnZapisz.Text = "Zapisz";
             this._btnZapisz.UseVisualStyleBackColor = true;
+            this._btnZapisz.Click += new System.EventHandler(this._btnZapisz_Click);
             // 
             // _btnAnuluj
             // 
             this._btnAnuluj.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this._btnAnuluj.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this._btnAnuluj.Location = new System.Drawing.Point(641, 424);
+            this._btnAnuluj.Location = new System.Drawing.Point(146, 242);
             this._btnAnuluj.Name = "_btnAnuluj";
             this._btnAnuluj.Size = new System.Drawing.Size(75, 23);
             this._btnAnuluj.TabIndex = 1;
             this._btnAnuluj.Text = "Anuluj";
             this._btnAnuluj.UseVisualStyleBackColor = true;
+            this._btnAnuluj.Click += new System.EventHandler(this._btnAnuluj_Click);
             // 
             // FrmUniversalEditor
             // 
@@ -91,9 +95,10 @@ namespace ReflectionDemo
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this._btnAnuluj;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(305, 268);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "FrmUniversalEditor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Edytor uniwersalny";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

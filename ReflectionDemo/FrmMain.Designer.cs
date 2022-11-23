@@ -33,7 +33,7 @@ namespace ReflectionDemo
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._btnOsobyDodaj = new System.Windows.Forms.Button();
             this._btnOsobyEdytuj = new System.Windows.Forms.Button();
-            this._btnOsobyUsun = new System.Windows.Forms.Button();
+            this._dgvOsoby = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -41,17 +41,15 @@ namespace ReflectionDemo
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this._btnZamowieniaDodaj = new System.Windows.Forms.Button();
             this._btnZamowieniaEdytuj = new System.Windows.Forms.Button();
-            this._btnZamowieniaUsun = new System.Windows.Forms.Button();
-            this._dgvOsoby = new System.Windows.Forms.DataGridView();
             this._dgvZamowienia = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this._dgvOsoby)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this._dgvOsoby)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this._dgvZamowienia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -77,10 +75,9 @@ namespace ReflectionDemo
             this.flowLayoutPanel1.AutoSize = true;
             this.flowLayoutPanel1.Controls.Add(this._btnOsobyDodaj);
             this.flowLayoutPanel1.Controls.Add(this._btnOsobyEdytuj);
-            this.flowLayoutPanel1.Controls.Add(this._btnOsobyUsun);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(243, 29);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(162, 29);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // _btnOsobyDodaj
@@ -91,6 +88,7 @@ namespace ReflectionDemo
             this._btnOsobyDodaj.TabIndex = 0;
             this._btnOsobyDodaj.Text = "Dodaj";
             this._btnOsobyDodaj.UseVisualStyleBackColor = true;
+            this._btnOsobyDodaj.Click += new System.EventHandler(this._btnOsobyDodaj_Click);
             // 
             // _btnOsobyEdytuj
             // 
@@ -100,15 +98,22 @@ namespace ReflectionDemo
             this._btnOsobyEdytuj.TabIndex = 1;
             this._btnOsobyEdytuj.Text = "Edytuj";
             this._btnOsobyEdytuj.UseVisualStyleBackColor = true;
+            this._btnOsobyEdytuj.Click += new System.EventHandler(this._btnOsobyEdytuj_Click);
             // 
-            // _btnOsobyUsun
+            // _dgvOsoby
             // 
-            this._btnOsobyUsun.Location = new System.Drawing.Point(165, 3);
-            this._btnOsobyUsun.Name = "_btnOsobyUsun";
-            this._btnOsobyUsun.Size = new System.Drawing.Size(75, 23);
-            this._btnOsobyUsun.TabIndex = 2;
-            this._btnOsobyUsun.Text = "Usuń";
-            this._btnOsobyUsun.UseVisualStyleBackColor = true;
+            this._dgvOsoby.AllowUserToAddRows = false;
+            this._dgvOsoby.AllowUserToDeleteRows = false;
+            this._dgvOsoby.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this._dgvOsoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._dgvOsoby.Location = new System.Drawing.Point(3, 38);
+            this._dgvOsoby.Name = "_dgvOsoby";
+            this._dgvOsoby.ReadOnly = true;
+            this._dgvOsoby.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this._dgvOsoby.Size = new System.Drawing.Size(654, 354);
+            this._dgvOsoby.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
@@ -175,10 +180,9 @@ namespace ReflectionDemo
             this.flowLayoutPanel2.AutoSize = true;
             this.flowLayoutPanel2.Controls.Add(this._btnZamowieniaDodaj);
             this.flowLayoutPanel2.Controls.Add(this._btnZamowieniaEdytuj);
-            this.flowLayoutPanel2.Controls.Add(this._btnZamowieniaUsun);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(243, 29);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(162, 29);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // _btnZamowieniaDodaj
@@ -189,6 +193,7 @@ namespace ReflectionDemo
             this._btnZamowieniaDodaj.TabIndex = 0;
             this._btnZamowieniaDodaj.Text = "Dodaj";
             this._btnZamowieniaDodaj.UseVisualStyleBackColor = true;
+            this._btnZamowieniaDodaj.Click += new System.EventHandler(this._btnZamowieniaDodaj_Click);
             // 
             // _btnZamowieniaEdytuj
             // 
@@ -198,29 +203,7 @@ namespace ReflectionDemo
             this._btnZamowieniaEdytuj.TabIndex = 1;
             this._btnZamowieniaEdytuj.Text = "Edytuj";
             this._btnZamowieniaEdytuj.UseVisualStyleBackColor = true;
-            // 
-            // _btnZamowieniaUsun
-            // 
-            this._btnZamowieniaUsun.Location = new System.Drawing.Point(165, 3);
-            this._btnZamowieniaUsun.Name = "_btnZamowieniaUsun";
-            this._btnZamowieniaUsun.Size = new System.Drawing.Size(75, 23);
-            this._btnZamowieniaUsun.TabIndex = 2;
-            this._btnZamowieniaUsun.Text = "Usuń";
-            this._btnZamowieniaUsun.UseVisualStyleBackColor = true;
-            // 
-            // _dgvOsoby
-            // 
-            this._dgvOsoby.AllowUserToAddRows = false;
-            this._dgvOsoby.AllowUserToDeleteRows = false;
-            this._dgvOsoby.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this._dgvOsoby.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._dgvOsoby.Location = new System.Drawing.Point(3, 38);
-            this._dgvOsoby.Name = "_dgvOsoby";
-            this._dgvOsoby.ReadOnly = true;
-            this._dgvOsoby.Size = new System.Drawing.Size(654, 354);
-            this._dgvOsoby.TabIndex = 2;
+            this._btnZamowieniaEdytuj.Click += new System.EventHandler(this._btnZamowieniaEdytuj_Click);
             // 
             // _dgvZamowienia
             // 
@@ -233,6 +216,7 @@ namespace ReflectionDemo
             this._dgvZamowienia.Location = new System.Drawing.Point(3, 38);
             this._dgvZamowienia.Name = "_dgvZamowienia";
             this._dgvZamowienia.ReadOnly = true;
+            this._dgvZamowienia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this._dgvZamowienia.Size = new System.Drawing.Size(655, 354);
             this._dgvZamowienia.TabIndex = 2;
             // 
@@ -247,13 +231,13 @@ namespace ReflectionDemo
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this._dgvOsoby)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this._dgvOsoby)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this._dgvZamowienia)).EndInit();
             this.ResumeLayout(false);
 
@@ -264,7 +248,6 @@ namespace ReflectionDemo
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Button _btnOsobyDodaj;
         private System.Windows.Forms.Button _btnOsobyEdytuj;
-        private System.Windows.Forms.Button _btnOsobyUsun;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -272,7 +255,6 @@ namespace ReflectionDemo
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button _btnZamowieniaDodaj;
         private System.Windows.Forms.Button _btnZamowieniaEdytuj;
-        private System.Windows.Forms.Button _btnZamowieniaUsun;
         private System.Windows.Forms.DataGridView _dgvOsoby;
         private System.Windows.Forms.DataGridView _dgvZamowienia;
     }
